@@ -48,7 +48,7 @@
             #region זימון פעולות
             //הפניה יכולה לזמן רק פעולות של הטיפוס שלה בלבד
             //נסיון לזמן פעולה שקיימת רק במחלקה יורשת תוביל לשגיאת קומפילציה
-            /************ sqaure.Area();******/
+            // square.Area();
             #endregion
 
 
@@ -66,6 +66,9 @@
             Console.WriteLine(c3.Area());
             Rectangle r = (Square)shapes[1];
             #endregion
+
+            //שגיאה בזמן ריצה
+           // Square square2 = (Square)shapes[0];
 
              #region is המרה בטוחה על שימוש ב
             for (int i=0;i<shapes.Length;i++)
@@ -95,11 +98,34 @@
                 Console.WriteLine(maxr.Area());
             }
 
+            Parcel[] parcels = { new Parcel("talsi"), new RegisteredParcel("humi"), new MuchoParcel("Kuku") };
+            Console.WriteLine(FindRegistered(parcels));
+
 
 
 
 
         }
+        public static bool FindRegistered(Parcel[] parcels)
+        {
+
+            for (int i = 0; i < parcels.Length; i++)
+            
+                //מכיוון שלחבילה בסיסית יש פעולת 
+                //DELIVER- הכל עובר קומפילציה
+                //עבור תא 0 שבו יש SHAPE
+                //תופעל ברירת המחדש
+                //עבור תא 1
+                //בגלל הOVERRIDE
+                //תופעל הפעולה של חבילה רשומה
+                //עבור תא 2
+                //בגלל שאין אוברייד
+                //תופעל הפעולה הרגילה של PARCEL
+                //כלומר הVIRTUAL
+                    Console.WriteLine( parcels[i].Deliver());
+            return false;
+        }
+
     }
     
 }
